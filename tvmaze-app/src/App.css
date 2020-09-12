@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.search-bar {
+	margin: 30px auto;
+}
+
+.search-bar * {
+	width: 30%;
+	padding: 5px;
+	margin: 5px;
+	font-size: 18px;
+}
+
+.search-bar button {
+	width: 10%;
+	font-size: 12px;
+}
+
+.sortby-field {
+	padding: 5px;
+	font-size: 18px;
+}
+
+.all-results {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 10px auto;
+	width: 80%;
+
+}
+
+.indiv-result {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 0.5px solid black;
+	width: calc(( 100% - 40px ) / 4);
+	padding: 5px;
+	margin: 5px;
+}
+
+.indiv-result * {
+	margin: 5px auto;
+	text-decoration: none;
+	color: black;
+}
+
+.indiv-result img {
+	width: 80%;
+	object-fit: cover;
+}
+
+.additional-info {
+	width: 90%;
+	display: flex;
+	justify-content: space-between
+}
+
+.additional-info * {
+	font-size: 10px;
+}
