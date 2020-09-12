@@ -1,21 +1,54 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
 .search-bar {
 	margin: 30px auto;
+	display: flex;
+	justify-content: center;
 }
 
-.search-bar * {
-	width: 30%;
+.search-bar > div {
+	width: 45%;
+	margin: 0 12px 0 0;
+	text-align: left;
+	border: 0.5px solid gray;
+}
+
+.search-bar > div > input {
+	width: calc( 100% - 24px );
 	padding: 5px;
 	margin: 5px;
 	font-size: 18px;
+
 }
+
+.search-bar > div > a {
+	text-decoration: none;
+
+}
+
+.search-bar > div > a > div {
+	margin: 0 10px;
+	padding: 5px;
+	width: calc( 100% - 24px );
+	text-align: left;
+	color: black;
+}
+
+.search-bar > div > a > div:hover {
+	background-color: lightblue;
+}
+
+
 
 .search-bar button {
 	width: 10%;
 	font-size: 12px;
+	padding: 5px;
+	margin: 8px;
+	align-self: flex-start;
 }
 
 .result-page-header {

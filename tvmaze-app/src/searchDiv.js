@@ -51,7 +51,7 @@ class SearchDiv extends React.Component {
     }
 
     onBackToSearchClick() {
-        this.setState({onResultsPage: false})
+        this.setState({onResultsPage: false, sortBy: "score"})
     }
 
 
@@ -69,11 +69,14 @@ class SearchDiv extends React.Component {
         }
 
         return (<div>
+
             <div className="result-page-header">
             <button onClick={this.onBackToSearchClick}>Back To Search</button>
             <SortBy onChange={this.onSortByChange} optionState={this.state.sortBy}/>
             </div>
+
             <Results query={this.state.query} sortBy={this.state.sortBy} />
+
             </div>)
     }
 

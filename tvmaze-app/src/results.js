@@ -119,7 +119,6 @@ class Results extends React.Component {
 
 
     render () {
-            console.log(this.state)
             return (
                 <div>
                 <div className="search-notification">You searched for: {this.state.query}</div>

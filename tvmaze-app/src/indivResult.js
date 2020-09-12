@@ -6,7 +6,7 @@ function IndivResult({name, image, url, status, rating}){
     return (
             <div className="indiv-result">
                 <a href={url}>
-                <img src={image} alt="Image unavailable" />
+                <img src={image} alt="Unavailable" />
                 <div>{name}</div>
                 <div className="additional-info"><div>{status}</div><div> {rating}</div></div>
                 </a>
