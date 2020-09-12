@@ -10,13 +10,15 @@ class SearchDiv extends React.Component {
         this.state = {
             inputValue: "",
             query: "",
-            sortBy: "score"
+            sortBy: "score",
+            onResultsPage: false
         }
 
         this.onInputChange = this.onInputChange.bind(this)
         this.onInputButtonClick = this.onInputButtonClick.bind(this)
         this.onInputKeyDown = this.onInputKeyDown.bind(this)
         this.onSortByChange = this.onSortByChange.bind(this)
+        this.onBackToSearchClick = this.onBackToSearchClick.bind(this)
 
     }
 
@@ -31,7 +33,7 @@ class SearchDiv extends React.Component {
     onInputButtonClick(event) {
         let x=event.target.value
         if(x.length > 0) {
-            this.setState({query: x}) //query only changes on search submission
+            this.setState({query: x, onResultsPage: true, inputValue: ""}) //query only changes on search submission
         }
     }
 
@@ -48,14 +50,30 @@ class SearchDiv extends React.Component {
         this.setState({sortBy: x})
     }
 
+    onBackToSearchClick() {
+        this.setState({onResultsPage: false})
+    }
+
 
 
     render() {
+        if(!this.state.onResultsPage){
+            return (<div>
+
+                <h1>Search TV shows</h1>
+
+            <SearchInput value={this.state.inputValue} onChange={this.onInputChange} onClick={this.onInputButtonClick} onKeyDown={this.onInputKeyDown}/>
+
+            </div>)
+
+        }
 
         return (<div>
-            <SearchInput value={this.state.inputValue} onChange={this.onInputChange} onClick={this.onInputButtonClick} onKeyDown={this.onInputKeyDown}/>
+            <div className="result-page-header">
+            <button onClick={this.onBackToSearchClick}>Back To Search</button>
             <SortBy onChange={this.onSortByChange} optionState={this.state.sortBy}/>
-            <Results query={this.state.query} sortBy={this.state.sortBy}/>
+            </div>
+            <Results query={this.state.query} sortBy={this.state.sortBy} />
             </div>)
     }
 

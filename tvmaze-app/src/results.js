@@ -20,9 +20,9 @@ class Results extends React.Component {
     }
 
     //when state has changed,
-    componentDidUpdate(prevProps, prevState){
+    componentDidMount(){
         //only trigger api call if the query is different.
-        if(prevProps.query!==this.props.query){
+        if(this.props.query){
             fetch("http://api.tvmaze.com/search/shows?q=" + this.state.query)
                 .then(res => res.json())
                 .then(res => {
@@ -38,6 +38,9 @@ class Results extends React.Component {
                 })
         }
 
+    }
+
+    componentDidUpdate(prevProps) {
         //only trigger re-sort if the sortby value has changed
         if(prevProps.sortBy!==this.props.sortBy) {
             this.sortFunction(this.state.sortBy, this.state.result)
@@ -116,9 +119,13 @@ class Results extends React.Component {
 
 
     render () {
+            console.log(this.state)
             return (
+                <div>
+                <div className="search-notification">You searched for: {this.state.query}</div>
                 <div className="all-results">
                     {this.state.resultHTML}
+                </div>
                 </div>)
     }
 

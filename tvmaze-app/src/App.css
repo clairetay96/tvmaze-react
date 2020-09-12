@@ -18,9 +18,21 @@
 	font-size: 12px;
 }
 
+.result-page-header {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+	margin: 10px auto;
+	padding: 5px;
+}
+
 .sortby-field {
 	padding: 5px;
-	font-size: 18px;
+	font-size: 12px;
+}
+
+.sortby-text {
+	font-size: 12px;
 }
 
 .all-results {
